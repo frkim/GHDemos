@@ -57,6 +57,21 @@ Open a Web browser and type in the address bar : http://localhost:3000/weather?c
 
 ## GitHub Copilot inline editing assistant
 
+### Q&A Editor
+
+First you can use the editor pane to ask your question just type the comment character followed by q:
+
+Use tab keyboard to validate the suggestion
+
+    # q: what REST stands for?
+    # a: Representational State Transfer
+    # q: can you explain what is REST?
+    # a: REST is an architectural style for building distributed systems based on hypermedia.
+    # q: what is the difference between a web service and a RESTful web service?
+    # a: a web service is a software system designed to support interoperable machine-to-machine interaction over a network.
+
+### Code Authoring
+
 Create a new file named: tempconv.py and write the following text:
 
     # Function that converts temperature from Celsius 
@@ -80,6 +95,30 @@ Type the following comment:
     # function that converts miles to kilometers
 
 Type ^M (Control M) to display the multiple suggestions
+
+### SQL Code Authoring (Optionnaly)
+
+GitHub Copilot can help in writing SQL Code
+
+Type the following code in a blank file:
+
+    class Employee:
+    def __init__(self, i, n):
+        self.empid = i
+        self.name = n
+
+This code defines a class with two attributes: empid and name. If you type the following code
+
+    # Create Employee table
+
+GitHub Copilot will complete with:
+
+    cursor = dbConnection.cursor()
+    cursor.execute("DROP TABLE IF EXISTS Employee")
+    cursor.execute("CREATE TABLE Employee (empid INTEGER PRIMARY KEY, name TEXT)")
+    dbConnection.commit()
+
+### Unit Test Authoring
 
 In GitHub Copilot Chat type:
 
