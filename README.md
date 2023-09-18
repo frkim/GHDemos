@@ -1,8 +1,8 @@
-# GitHub Copilot Demo walkthrough
+# GitHub Copilot Demo Walkthrough
 
-In this tutorial, we are going to detail all the steps to demonstrate GiHub Copilot with several samples. This walkthrough relies on Visual Studio Code and Python programming language because these tools are very popular.
+In this tutorial, we are going to detail all the steps to demonstrate GiHub Copilot with several samples. This walkthrough relies on Visual Studio Code and Python programming language because these tools are very popular among developers, IT engineers, DevOps, and data scientists.
 
-We will see how GitHub Copilot Chat can help developers as a usefull assistant wihtout leaving the editor and how GitHub Copilot can help by suggesting code snippet during the code authoring.
+We will see how GitHub Copilot Chat can help developers as a useful assistant without leaving the editor and how GitHub Copilot can help by suggesting code snippets during the code authoring.
 
 ## Prerequisites
 
@@ -23,54 +23,11 @@ Register a new free account on [Сurrent weather and forecast - OpenWeatherMap](
 For Microsoft Team Integration
 Create a Webhook into a sandbox channel and get the Webhook's URL. [See this page](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?tabs=dotnet).
 
-
 ## GitHub Copilot Chat in Visual Studio Code
 
 ### First sample
 
     Hello, I'm a junior developer and I would like to learn python, what are the first steps?
-
-### MSFT Stock Value in Microsoft Team
-
-In this sample you are going to query an online API to get the Microsoft Stock Value and send it to Microsoft teams through a Webhook
-
-Open a new file and save it to stocks.py, then type
-
-    # Function that get the online MSFT stock value
-
-Github Copilot will complete with a code like:
-
-    def get_stock_value():
-        url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=MSFT&apikey=demo"
-        response = requests.get(url)
-        data = response.json()
-        return data["Global Quote"]["05. price"]
-
-Then, write the following comment:
-    
-    # Function that a message on Microsoft Teams Webhook
-
-GitHub Copilot will suggests:
-
-    def send_message(message):
-        url = "https://microsoft.webhook.office.com/webhookb2/YourIncomingWebhook"
-        headers = {'Content-Type': 'application/json'}
-        payload = {'text': message}
-        response = requests.post(url, headers=headers, data=json.dumps(payload))
-        return response.status_code
-
-Add this code at the begging of the file:
-
-    import requests
-    import json
-
-and this one at the end:
-
-    send_message('MSFT Stock:' + get_stock_value())
-
-And click on [Play Button](https://code.visualstudio.com/docs/languages/python#_run-python-code) to execute the python script
-
-Now just check in your Team a new notification "MSFT Stock:330.2200"
 
 ### Weather forecast
 
@@ -80,9 +37,9 @@ In GitHub Copilot Chat, type:
 
 1) Create a new file named weatherforecast.py and copy/paste the
     function code
-2) Go to OpenWeatherForecast website and retrieve get you API
+2) Go to OpenWeatherForecast website and retrieve your API
     Key
-3) Replace YOUR_API_KEY_HERE by your own OpenWeatherMap API key
+3) Replace YOUR_API_KEY_HERE with your own OpenWeatherMap API key
 
 In GitHub Copilot Chat, type:
 
@@ -100,15 +57,15 @@ To run this app, save the code to a file named app.py and run the following comm
 
     python -m uvicorn app:app --host 0.0.0.0 --port 3000
 
-Open a Web browser and type in the address bar : http://localhost:3000/weather?city=Paris
+Open a Web browser and type in the address bar: http://localhost:3000/weather?city=Paris
 
 ## GitHub Copilot inline editing assistant
 
 ### Q&A Editor
 
-First you can use the editor pane to ask your question just type the comment character followed by q:
+First, you can use the editor pane to ask your question just type the comment character followed by q:
 
-Use tab keyboard to validate the suggestion
+Use the tab keyboard to validate the suggestion
 
     # q: what REST stands for?
     # a: Representational State Transfer
@@ -123,7 +80,7 @@ Create a new file named: tempconv.py and write the following text:
 
     # Function that converts temperature from Celsius 
 
-GitHub Copilot should complete with a code that looks like:
+GitHub Copilot should complete with a code that looks like this:
 
     def convert_temp_C2F(temp):
         return (temp * 9/5) + 32
@@ -143,9 +100,11 @@ Type the following comment:
 
     # Function that converts miles to kilometers
 
-Once you've typed **Enter** keyboard you can display multiple suggestions by typing the **Ctrl-Enter** shorthcut. 
+Once you've typed **Enter** keyboard you can display multiple suggestions by typing the **Ctrl-Enter** shortcut.
 
-If this shortcut doesn't work because another keyboard mapping, just display the Visual Studio Command Palette (View\Command Palette or Ctrl-Shift-P) and type 'GitHub Copilot: Open Completions Panel'.
+If this shortcut doesn't work because of another keyboard mapping, just display the Visual Studio Command Palette (View\Command Palette or Ctrl-Shift-P) and type 'GitHub Copilot: Open Completions Panel'.
+
+You can move the mouse's cursor over the grey suggestion to display a flyout menu with different solutions ([See here for shortcuts](https://docs.github.com/en/copilot/getting-started-with-github-copilot#seeing-alternative-suggestions-2)).
 
 ### SQL Code Authoring (Optionnaly)
 
@@ -198,7 +157,6 @@ Click on Testing Icon [See Testing Python in Visual Studio Code](https://code.vi
 
 ![Testing Python in VS Code](https://code.visualstudio.com/assets/docs/python/testing/test-explorer-no-tests.png)
 
-
 ### Explain code
 
 In Copilot Chat type:
@@ -215,7 +173,51 @@ Select and copy the regular expression and type in GitHub Copilot Chat
 
     Can you explain in GitHub the following regular expression: ^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$
 
+### MSFT Stock Value in Microsoft Team
+
+In this sample you are going to query an online API to get the Microsoft Stock Value and send it to Microsoft teams through a Webhook
+
+Open a new file and save it to stocks.py, type
+
+    # Function that retrieve the online MSFT stock value
+
+Just after typing **Enter** Github Copilot will complete with a code like:
+
+    def get_stock_value():
+        url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=MSFT&apikey=demo"
+        response = requests.get(url)
+        data = response.json()
+        return data["Global Quote"]["05. price"]
+
+Then, write the following comment:
+
+    # Function that publish a message on Microsoft Teams Webhook
+
+GitHub Copilot will suggests:
+
+    def send_message(message):
+        url = "https://microsoft.webhook.office.com/webhookb2/YourIncomingWebhook"
+        headers = {'Content-Type': 'application/json'}
+        payload = {'text': message}
+        response = requests.post(url, headers=headers, data=json.dumps(payload))
+        return response.status_code
+
+Add this code at the beginning of the file:
+
+    import requests
+    import json
+
+and this one at the end:
+
+    send_message('MSFT Stock:' + get_stock_value())
+
+Click on [Play Button](https://code.visualstudio.com/docs/languages/python#_run-python-code) to execute the python script
+
+Now just check in your Team a new notification "MSFT Stock:330.2200"
+
 ### Additionnal References
+
+Below, you'll find some useful links to move forward with GitHub Copilot:
 
 - [Get Started with the Future of Coding: GitHub Copilot](https://www.youtube.com/watch?v=Fi3AJZZregI&t=469s)
 - [Create a .NET Web API with Entity Framework with GitHub - Copilot](https://www.youtube.com/watch?v=A7nV0xF5vYg)
