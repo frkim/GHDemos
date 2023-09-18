@@ -9,7 +9,7 @@ We will see how GitHub Copilot Chat can help developers as a usefull assistant w
 Before running the sample you need to install:
 
 - [Visual Studio Code](https://code.visualstudio.com/download)
-- [GitHub Copilot](https://code.visualstudio.com/docs/editor/artificial-intelligence#:~:text=The%20GitHub%20Copilot%20extension%20is,and%20even%20configure%20your%20editor.) + [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
+- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot&WT.mc_id=devcloud-85335-cxa) + [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
 - [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 - [Python framework](https://www.python.org/downloads/)
 - [Python modules](https://docs.python.org/3/installing/index.html): requests fastapi and uvicorn
