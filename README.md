@@ -1,6 +1,6 @@
 # GitHub Copilot Demo walkthrough
 
-In this tutorial, we are going to detail all the steps to demonstrate GiHub Copilot with a few live examples. This walkthrough relies on Visual Studio Code and Python programming language. Nowadays, both VS Code and Python are popular tools in developer environments.
+In this tutorial, we are going to detail all the steps to demonstrate GiHub Copilot with several samples. This walkthrough relies on Visual Studio Code and Python programming language because both VS Code and Python are popular tools.
 
 ## Prerequisites
 
