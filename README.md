@@ -6,11 +6,14 @@ In this tutorial, we are going to detail all the steps to demonstrate GiHub Copi
 
 Before running the sample you need to install:
 
- - Visual Studio Code
- - GH Copilot + GH Copilot Chat extension
- - Python Extension
- - Python framework
- - Python modules: requests fastapi and uvicorn
+ - [Visual Studio Code](https://code.visualstudio.com/download)
+ - [GH Copilot](https://code.visualstudio.com/docs/editor/artificial-intelligence#:~:text=The%20GitHub%20Copilot%20extension%20is,and%20even%20configure%20your%20editor.) + [GH Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
+ - [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+ - [Python framework](https://www.python.org/downloads/)
+ - [Python modules](https://docs.python.org/3/installing/index.html): requests fastapi and uvicorn
+   - python -m pip install requests
+   - python -m pip install fastapi
+   - python -m pip install uvicorn
 
 Then, register a new free account on [Сurrent weather and forecast - OpenWeatherMap](https://openweathermap.org/)
 
