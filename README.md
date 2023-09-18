@@ -17,13 +17,60 @@ Before running the sample you need to install:
   - python -m pip install fastapi
   - python -m pip install uvicorn
 
-Then, register a new free account on [Сurrent weather and forecast - OpenWeatherMap](https://openweathermap.org/)
+For dev scenario(with OpenWeather)
+Register a new free account on [Сurrent weather and forecast - OpenWeatherMap](https://openweathermap.org/)
+
+For Microsoft Team Integration
+Create a Webhook into a sandbox channel and get the Webhook's URL. [See this page](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?tabs=dotnet).
+
 
 ## GitHub Copilot Chat in Visual Studio Code
 
 ### First sample
 
     Hello, I'm a junior developer and I would like to learn python, what are the first steps?
+
+### MSFT Stock Value in Microsoft Team
+
+In this sample you are going to query an online API to get the Microsoft Stock Value and send it to Microsoft teams through a Webhook
+
+Open a new file and save it to stocks.py, then type
+
+    # Function that get the online MSFT stock value
+
+Github Copilot will complete with a code like:
+
+    def get_stock_value():
+        url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=MSFT&apikey=demo"
+        response = requests.get(url)
+        data = response.json()
+        return data["Global Quote"]["05. price"]
+
+Then, write the following comment:
+    
+    # Function that a message on Microsoft Teams Webhook
+
+GitHub Copilot will suggests:
+
+    def send_message(message):
+        url = "https://microsoft.webhook.office.com/webhookb2/YourIncomingWebhook"
+        headers = {'Content-Type': 'application/json'}
+        payload = {'text': message}
+        response = requests.post(url, headers=headers, data=json.dumps(payload))
+        return response.status_code
+
+Add this code at the begging of the file:
+
+    import requests
+    import json
+
+and this one at the end:
+
+    send_message('MSFT Stock:' + get_stock_value())
+
+And click on [Play Button](https://code.visualstudio.com/docs/languages/python#_run-python-code) to execute the python script
+
+Now just check in your Team a new notification "MSFT Stock:330.2200"
 
 ### Weather forecast
 
@@ -90,11 +137,15 @@ GitHub Copilot should suggest a similar code:
         def convert_temp_F2C(temp):
             return (temp - 32) * 5/9
 
+### Displaying multiple solutions
+
 Type the following comment:
 
-    # function that converts miles to kilometers
+    # Function that converts miles to kilometers
 
-Type ^M (Control M) to display the multiple suggestions
+Once you've typed **Enter** keyboard you can display multiple suggestions by typing the **Ctrl-Enter** shorthcut. 
+
+If this shortcut doesn't work because another keyboard mapping, just display the Visual Studio Command Palette (View\Command Palette or Ctrl-Shift-P) and type 'GitHub Copilot: Open Completions Panel'.
 
 ### SQL Code Authoring (Optionnaly)
 
@@ -160,4 +211,14 @@ GitHub Copilot should write a code something similar to:
         pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
         return re.search(pattern, email) is not None
 
-Select and copy the regular expression and explain in GitHub Copilot Chat.
+Select and copy the regular expression and type in GitHub Copilot Chat
+
+    Can you explain in GitHub the following regular expression: ^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$
+
+### Additionnal References
+
+- [Get Started with the Future of Coding: GitHub Copilot](https://www.youtube.com/watch?v=Fi3AJZZregI&t=469s)
+- [Create a .NET Web API with Entity Framework with GitHub - Copilot](https://www.youtube.com/watch?v=A7nV0xF5vYg)
+- [Create Python Django apps with GitHub Copilot](https://www.youtube.com/watch?v=HDsJQVa0R94)
+- [GitHub Copilot: Getting Started with Chat](https://www.youtube.com/watch?v=3surPGP7_4o)
+- [GitHub Copilot tips and tricks](https://www.youtube.com/watch?v=1qs6QKk0DVc)
