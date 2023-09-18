@@ -113,7 +113,7 @@ In Copilot Chat type:
 
     # Function that validates an email address
 
-GitHub Copilot should write a code that is similar to :
+GitHub Copilot should write a code something similar to:
 
     def is_valid_email(email):
         pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
