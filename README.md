@@ -12,10 +12,12 @@ Before running the sample you need to install:
 - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot&WT.mc_id=devcloud-85335-cxa) + [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
 - [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 - [Python framework](https://www.python.org/downloads/)
-- [Python modules](https://docs.python.org/3/installing/index.html): requests, fastapi and uvicorn
-  - python -m pip install requests
-  - python -m pip install fastapi
-  - python -m pip install uvicorn
+- [Python modules](https://docs.python.org/3/installing/index.html): requests, fastapi, uvicorn...
+
+Type the following command in a terminal:
+`
+python -m pip -r requirements
+`
 
 For dev scenario(with OpenWeather)
 Register a new free account on [Сurrent weather and forecast - OpenWeatherMap](https://openweathermap.org/)
