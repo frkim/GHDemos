@@ -44,7 +44,7 @@ Use the **tab** keyboard key to validate the suggestion
 
 Create a new file named: tempconv.py and write the following comment text block:
 
-    # Function that converts temperature from Celsius 
+    # Function that converts temperature from Celsius to Fahrenheit
 
 GitHub Copilot should complete with a code that looks like this:
 
